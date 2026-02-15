@@ -1,0 +1,463 @@
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Inter", sans-serif;
+}
+
+/* ================= ROOT COLORS ================= */
+:root{
+    --primary:#5C56E1;
+    --accent:#8B5CF6;
+    --card:#ffffff;
+    --input:#F1F1FF;
+    --text:#333;
+    --border:#D4D4ED;
+    --gradient:linear-gradient(135deg,#5C56E1,#8B5CF6);
+}
+
+/* ================= DARK MODE ================= */
+body.dark-theme{
+    --card:#1E293B;
+    --input:#141B2D;
+    --text:#F3F4F6;
+    --border:#334155;
+    background:#0f172a;
+}
+
+/* ================= BODY ================= */
+body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:20px;
+    background:linear-gradient(#e9e9ff,#c8c7ff);
+    transition:0.3s ease;
+}
+
+/* ================= CONTAINER ================= */
+.container{
+    width:100%;
+    max-width:950px;
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.08);
+    transition:0.3s ease;
+}
+
+/* ================= HEADER ================= */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.logo-wrapper{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:15px;
+    color:#fff;
+    font-size:1.3rem;
+    background:var(--gradient);
+}
+
+.header h1{
+    font-size:1.7rem;
+    font-weight:700;
+    color:var(--text);
+}
+
+.theme-toggle{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--input);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.theme-toggle:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 12px rgba(0,0,0,0.1);
+}
+
+/* ================= CONTROLS ================= */
+.prompt-actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.custom-select{
+    padding:12px 15px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:var(--input);
+    min-width:150px;
+    color:var(--text);
+    cursor:pointer;
+}
+
+.generate-btn{
+    padding:12px 20px;
+    border-radius:10px;
+    border:none;
+    color:#fff;
+    background:var(--gradient);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:0.3s;
+}
+
+.generate-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(92,86,225,0.3);
+}
+
+/* ================= TEXTAREA ================= */
+.prompt-input{
+    width:100%;
+    min-height:140px;
+    padding:18px;
+    border-radius:15px;
+    border:1px solid var(--border);
+    background:var(--input);
+    resize:vertical;
+    font-size:1rem;
+    line-height:1.6;
+    color:var(--text);
+    margin-bottom:20px;
+}
+
+.prompt-input:focus{
+    outline:none;
+    border-color:var(--accent);
+    box-shadow:0 0 0 4px rgba(139,92,246,0.15);
+}
+
+/* ================= IMAGE GRID ================= */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+    gap: 20px;
+}
+
+/* ================= IMAGE LOADING EFFECT ================= */
+
+.image-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    opacity:0;
+    filter:blur(15px);
+    transform:scale(1.05);
+    transition:opacity 0.6s ease,
+               filter 0.6s ease,
+               transform 0.6s ease;
+}
+
+/* When image fully loaded */
+.image-card.loaded img{
+    opacity:1;
+    filter:blur(0);
+    transform:scale(1);
+}
+
+
+/* ================= IMAGE CARD ================= */
+.image-card{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--card);
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.4s ease;
+}
+
+.image-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:0.4s ease;
+}
+
+.image-card:hover img{
+    transform:scale(1.05);
+}
+
+.image-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* Glassmorphism image cards */
+.image-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    transition: 0.5s ease;
+}
+
+body.dark-theme .image-card {
+    background: rgba(15, 23, 42, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.image-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(92, 86, 225, 0.35);
+}
+
+
+/* ================= DOWNLOAD BUTTON ================= */
+.image-footer{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+}
+
+.download-btn{
+    height:38px;
+    width:38px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:#fff;
+    background:rgba(92,86,225,0.9);
+    backdrop-filter:blur(8px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    transition:0.3s ease;
+}
+
+.download-btn:hover{
+    transform:scale(1.1);
+    background:#5C56E1;
+}
+
+/* ================= LOADER ================= */
+.loader-wrapper{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(6px);
+    border-radius:18px;
+    z-index:10;
+}
+
+body.dark-theme .loader-wrapper{
+    background:rgba(15,23,42,0.8);
+}
+
+.loader-wrapper.hidden{
+    display:none;
+}
+
+.spinner{
+    width:45px;
+    height:45px;
+    border:4px solid rgba(92,86,225,0.2);
+    border-top:4px solid var(--primary);
+    border-radius:50%;
+    animation:spin 0.8s linear infinite;
+}
+
+@keyframes spin{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+.loader-wrapper p{
+    font-size:0.9rem;
+    font-weight:500;
+    color:var(--primary);
+}
+/* ================= SKELETON LOADING ================= */
+
+.skeleton-card{
+    position:relative;
+    height:220px;
+    border-radius:18px;
+    overflow:hidden;
+    background:#e5e7eb;
+}
+
+body.dark-theme .skeleton-card{
+    background:#1f2937;
+}
+
+/* Shimmer Effect */
+.skeleton-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.5),
+        transparent
+    );
+    animation:shimmer 1.2s infinite;
+}
+
+body.dark-theme .skeleton-card::before{
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+    );
+}
+
+@keyframes shimmer{
+    0%{
+        transform:translateX(-100%);
+    }
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+
+/* Gradient animated background */
+body {
+    background: linear-gradient(-45deg, #5C56E1, #8B5CF6, #FF6FD8, #42E695);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.skeleton-card {
+    position: relative;
+    height: 220px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(92, 86, 225, 0.15);
+}
+
+.skeleton-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(92, 86, 225, 0.1),
+        rgba(139, 92, 246, 0.3),
+        rgba(92, 86, 225, 0.1)
+    );
+    animation: shimmerPulse 1.5s infinite;
+}
+
+@keyframes shimmerPulse {
+    0% { transform: translateX(-100%);}
+    50% { transform: translateX(100%);}
+    100% { transform: translateX(-100%);}
+}
+
+#particles-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    width: 4px;
+    height: 4px;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    0% { transform: translateY(0) translateX(0); opacity:1;}
+    50% { opacity:0.6;}
+    100% { transform: translateY(-500px) translateX(50px); opacity:0;}
+}
+
+/* ================= BUTTON ANIMATION ================= */
+
+/* Hover glow & lift for buttons */
+.generate-btn,
+.download-btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.generate-btn:hover,
+.download-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(92, 86, 225, 0.4);
+}
+
+/* Gradient shine animation on hover */
+.generate-btn::before,
+.download-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+    transform: skewX(-20deg);
+    transition: 0.5s ease;
+}
+
+.generate-btn:hover::before,
+.download-btn:hover::before {
+    left: 125%;
+}
+
+/* Optional subtle pulse effect when button is active/loading */
+.generate-btn.loading,
+.download-btn.loading {
+    animation: pulseButton 1s infinite;
+}
+
+@keyframes pulseButton {
+    0% { transform: scale(1) translateY(0); box-shadow: 0 8px 20px rgba(92, 86, 225, 0.3);}
+    50% { transform: scale(1.02) translateY(-2px); box-shadow: 0 12px 30px rgba(92, 86, 225, 0.45);}
+    100% { transform: scale(1) translateY(0); box-shadow: 0 8px 20px rgba(92, 86, 225, 0.3);}
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    .image-grid{
+        grid-template-columns:1fr;
+    }
+}
