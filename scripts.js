@@ -9,8 +9,6 @@ const loader = document.getElementById("loader");
 
 const API_KEY = "YOUR_GEMINI_API_KEY_HERE";
 
-/* ================= THEME ================= */
-
 (function () {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
@@ -28,7 +26,7 @@ themeToggle.addEventListener("click", () => {
     : '<i class="fa-solid fa-moon"></i>';
 });
 
-/* ================= GENERATE ================= */
+/*  GENERATE  */
 
 promptForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -49,7 +47,7 @@ promptForm.addEventListener("submit", async (e) => {
   loader.classList.add("hidden");
 });
 
-/* ================= GEMINI IMAGE GENERATION ================= */
+/*  GEMINI IMAGE GENERATION  */
 
 async function generateImage(prompt, aspectRatio) {
   try {
@@ -80,7 +78,7 @@ async function generateImage(prompt, aspectRatio) {
   }
 }
 
-/* ================= CREATE CARD ================= */
+/*CREATE CARD*/
 
 function createImageCard(imageUrl){
 
