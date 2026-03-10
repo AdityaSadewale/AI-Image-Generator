@@ -67,9 +67,6 @@ Models: Add or modify AI models in the <select> dropdown
 
 Styling: Customize gradient background, particle effects, and card style in style.css
 
-📄 License
-This project is open-source and available under the MIT License.
-Feel free to use, modify, and distribute! 💖
 
 🤝 Contributing
 Fork the repo
