@@ -3,7 +3,6 @@
 Welcome to **AI Image Generator**! 🚀 This project lets you create stunning AI-generated images from text prompts using modern AI models. Perfect for creatives, designers, and AI enthusiasts! 🧠✨
 
 ---
-
 ## 🌈 Features
 
 - 🧊 **Glassmorphism Cards** – Beautiful frosted-glass style image cards  
